@@ -70,6 +70,25 @@ void merge_sort(int arr[],int l,int r){
         merge(arr,l,mid,r);
     }
 }
+int partition(int arr[], int low, int high){
+    int pivot=arr[high];
+    int i=low-1;
+    for(int j=low;j<=high-1;j++){
+        if(arr[j]<pivot){
+            i++;
+            swap(&arr[i],&arr[j]);
+        }
+    }
+    swap(&arr[i+1],&arr[high]);
+    return i+1;
+}
+void quick_sort(int arr[],int low,int high){
+    if(low<high){
+        int pi=partition(arr,low,high);
+        quick_sort(arr,low,pi-1);
+        quick_sort(arr,pi+1,high);
+    }
+}
 int main(){
     int n;
     printf("Enter size of array: ");
@@ -77,6 +96,29 @@ int main(){
     int arr[n];
     printf("Enter array items (space seperated): ");
     for(int i=0;i<n;i++)scanf("%d",&arr[i]);
+    printf("Enter sort method:\n\n1) Insertion Sort\n2) Selection Sort\n3) Bubble Sort\n4) Merge Sort\n5) Quick Sort\n\nEnter your choice: ");
+    int oper;
+    scanf("%d",&oper);
+    switch(oper){
+        case 1:
+            insertion_sort(arr,n);
+            break;
+        case 2:
+            selection_sort(arr,n);
+            break;
+        case 3:
+            bubble_sort(arr,n);
+            break;
+        case 4:
+            merge_sort(arr,0,n-1);
+            break;
+        case 5:
+            quick_sort(arr,0,n-1);
+            break;
+        default:
+            printf("Invalid sort selected.");
+            return 0;
+    }
     bubble_sort(arr,n);
     printf("Array after sort: ");
     for(int i=0;i<n;i++)printf("%d ",arr[i]);
