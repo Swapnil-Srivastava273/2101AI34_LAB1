@@ -119,7 +119,6 @@ int main(){
             printf("Invalid sort selected.");
             return 0;
     }
-    bubble_sort(arr,n);
     printf("Array after sort: ");
     for(int i=0;i<n;i++)printf("%d ",arr[i]);
     return 0;
