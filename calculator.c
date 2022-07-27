@@ -15,7 +15,9 @@ int main(){
         case 2:
             printf("Subtraction is : %lf",a-b);
             break;
-        
+        case 3:
+            printf("Multiplication is : %lf",a*b);
+            break;
     }
     return 0;
 }
