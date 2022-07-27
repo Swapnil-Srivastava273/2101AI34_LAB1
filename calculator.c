@@ -12,6 +12,10 @@ int main(){
         case 1:
             printf("Addition is : %lf",a+b);
             break;
+        case 2:
+            printf("Subtraction is : %lf",a-b);
+            break;
+        
     }
     return 0;
 }
